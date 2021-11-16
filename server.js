@@ -30,7 +30,7 @@ mongoose.connect(MONGO_URI,{
     useUnifiedTopology: true,
 })
 
-    .then(()=> console.log('mongo db connected'))
+    .then(()=> console.log('mongo db connenhcted'))
     .catch(err => console.log(err))
 
 
