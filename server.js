@@ -3,8 +3,7 @@ const expressLayouts = require("express-ejs-layouts");
 const mongoose = require('mongoose');
 const {MONGO_URI} = require('./config');
 
-//routes
-const postsRoutes = require('./routes/api/posts');
+//
 
 const app = express();
 
@@ -25,7 +24,8 @@ app.use(expressLayouts);
 app.set("view engine", "ejs");
 
 //user routes
-app.use('/api/posts', postsRoutes);
+//app.use('/api/posts', postsRoutes);
+app.use("/users", require('./routes/api/users'));
 
 const port = 3000;
 
