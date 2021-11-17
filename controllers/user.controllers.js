@@ -3,16 +3,16 @@ const passport = require("passport");
 
 const User = require("../models/Posts");
 
-exports.login = (req, res) => res.render("login", {layout: "layouts/layout"}); //layout is an ejs file in which we will write html of components which will be common in all pages.
-
+exports.login = (req, res) => res.render("login", {layout: "layout"}); //layout is an ejs file in which we will write html of components which will be common in all pages.
 // "register" will be the name of the ejs file containing the view for register.
-exports.register = (req, res) => res.render("register", {layout: "layouts/layout"});
+
+exports.register = (req, res) => res.render("register", {layout: "layout"});
 
 exports.Register_User = (req, res) => {
-    const { name, email, password, contactno, address } = req.body;
+    const { name, email, password, contactNo, address } = req.body;
     let error = [];
-
-    if(!name || !email || !password || !contactno || !address)
+    console.log(`Server started on port ${name}`);
+    if(!name || !email || !password || !contactNo || !address)
     {
         error.push({ msg: "Please Enter Data in all the fields." });
     }
@@ -24,7 +24,7 @@ exports.Register_User = (req, res) => {
 
     if(error.length > 0)
     {
-        res.render("register",{ error, name, email, password, contactno, address });
+        res.render("register",{ error, name, email, password, contactNo, address });
     }
     else
     {
@@ -32,11 +32,11 @@ exports.Register_User = (req, res) => {
             if(user)
             {
                 error.push({ msg: "Email already exists" });
-                res.render("register",{ error, name, email, password, contactno, address });
+                res.render("register",{ error, name, email, password, contactNo, address });
             }
             else
             {
-                const newUser = new User({ name, email, password, contactno, address });
+                const newUser = new User({ name, email, password, contactNo, address });
                 bcrypt.genSalt(10, (err, salt) => {
                     bcrypt.hash(newUser.password, salt, (err, hash) => {
                         if(err) throw err;
