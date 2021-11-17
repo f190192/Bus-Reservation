@@ -24,7 +24,7 @@ app.use(expressLayouts);
 app.set("view engine", "ejs");
 
 //user routes
-app.use('/api/posts', postsRoutes);
+//app.use('/api/posts', postsRoutes);
 app.use("/users", require("./routes/api/users.js"));
 const port = 3000;
 
