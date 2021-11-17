@@ -7,8 +7,6 @@ const flash = require("connect-flash");
 const session = require("express-session");
 var path = require("path");
 
-//
-
 const app = express();
 
 //bodyParser middleware
@@ -59,7 +57,8 @@ app.use(function(req, res, next) {
 
 
 //user routes
-//app.use('/api/posts', postsRoutes);
+
+//app.use("/", require("./routes/index.js")); for welcome screen 
 app.use("/users", require("./routes/api/users.js"));
 const port = 3000;
 

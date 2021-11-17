@@ -40,7 +40,7 @@ exports.Register_User = (req, res) => {
                 bcrypt.genSalt(10, (err, salt) => {
                     bcrypt.hash(newUser.password, salt, (err, hash) => {
                         if(err) throw err;
-                        nwUser.password = hash;
+                        newUser.password = hash;
                         newUser
                         .save()
                         .then(user => {
