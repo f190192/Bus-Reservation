@@ -4,8 +4,8 @@ const passport = require("passport");
 const User = require("../models/Posts");
 
 exports.login = (req, res) => res.render("login", {layout: "layouts/layout"}); //layout is an ejs file in which we will write html of components which will be common in all pages.
-// "register" will be the name of the ejs file containing the view for register.
 
+// "register" will be the name of the ejs file containing the view for register.
 exports.register = (req, res) => res.render("register", {layout: "layouts/layout"});
 
 exports.Register_User = (req, res) => {
@@ -40,7 +40,7 @@ exports.Register_User = (req, res) => {
                 bcrypt.genSalt(10, (err, salt) => {
                     bcrypt.hash(newUser.password, salt, (err, hash) => {
                         if(err) throw err;
-                        nwUser.password = hash;
+                        newUser.password = hash;
                         newUser
                         .save()
                         .then(user => {
