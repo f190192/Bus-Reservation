@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 //posts Model
-const Posts = require('../../models/Posts');
+const Posts = require('../../models/posts');
 
 //@routes GET api/posts
 //@desc Get all Post
@@ -23,7 +23,7 @@ router.get('/',async (req,res)=>{
 
 //@routes POSTS api/posts
 //@desc Create an Post
-router.post('/',async (req,res)=>{
+router.post('/register',async (req,res)=>{
     //res.send(`Let's create post!`);
    // console.log(req.body);
 
