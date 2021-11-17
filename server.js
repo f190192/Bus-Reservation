@@ -8,6 +8,7 @@
 //password->Itj0CKvQrRpyfR68
 //link->mongodb+srv://f19_0103:Itj0CKvQrRpyfR68@cluster0.ngmmd.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 const express = require('express');
+const expressLayouts = require("express-ejs-layouts");
 const mongoose = require('mongoose');
 const {MONGO_URI} = require('./config');
 
@@ -30,9 +31,12 @@ mongoose.connect(MONGO_URI,{
     useUnifiedTopology: true,
 })
 
-    .then(()=> console.log('mongo db connencted'))
+    .then(()=> console.log('mongo db connected'))
     .catch(err => console.log(err))
 
+// EJS
+app.use(expressLayouts);
+app.set("view engine", "ejs");
 
 //user routes
 app.use('/api/posts', postsRoutes);
